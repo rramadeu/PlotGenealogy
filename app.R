@@ -28,8 +28,6 @@ suppressWarnings({
     library(ggtree)
     library(openxlsx)
     library(readxl)
-    library(cowplot)
-    library(ggimage)
   })
 })
 
@@ -80,7 +78,7 @@ ui <- fluidPage(
   fluidRow(
     column(1,
            hr(),
-           HTML("<p>It uses  <a href='https://cran.r-project.org/'>R</a> , <a href='https://guangchuangyu.github.io/software/ggtree/'>ggtree</a> and <a href='https://www.tidyverse.org/'>tidyverse</a>  packages</p> No data is saved here, you're safe."),
+           HTML("<p>It uses  <a href='https://cran.r-project.org/'>R</a> , <a href='https://guangchuangyu.github.io/software/ggtree/'>ggtree</a> and <a href='https://www.tidyverse.org/'>tidyverse</a>  packages</p> No data is saved here, you're safe <p> <a href='https://github.com/rramadeu/PlotGenealogy'>github.com/rramadeu/PlotGenealogy</a> </p>"),
     ))
 )
 
