@@ -44,7 +44,6 @@ plot_genealogy <- function(ped=NULL,
                            color=TRUE,
                            save=FALSE,
                            device="png",
-                           generations=100,
                            height=40,
                            slanted=TRUE,
                            width=15,
@@ -181,7 +180,7 @@ plot_genealogy <- function(ped=NULL,
   colorspallete <- colorspallete[-which(is.na(names(colorspallete)))]
   p$data$color[which(p$data$color=="0")] <- FALSE
   if(color){
-    p <- p + geom_tiplab(aes(color=color,geom="label")) + scale_colour_manual(values = colorspallete)
+    p <- p + geom_tiplab(aes(color=color),geom="label") + scale_colour_manual(values = colorspallete)
   }else{
     p <- p + geom_tiplab(geom="label")
   }
@@ -210,8 +209,13 @@ plot_genealogy <- function(ped=NULL,
   p$data$group <- as.factor(p$data$group)
   p$labels$linetype <- "group"
   p$mapping$linetype <- rlang::new_quosure(quote(group), rlang::caller_env())
+
+  
   }
-  p<-p+scale_linetype_manual(values=c("solid", "blank")) + theme(legend.position="none") + expand_limits(x = 3)
+  
+  p<-p+scale_linetype_manual(values=c("solid", "blank")) + theme(legend.position="none")+
+    expand_limits(x=-1,y=c(-.1*max(p$data$y),1.1*max(p$data$y)))
+  
   
   
   

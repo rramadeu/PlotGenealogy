@@ -28,6 +28,8 @@ suppressWarnings({
     library(ggtree)
     library(openxlsx)
     library(readxl)
+    library(cowplot)
+    library(ggimage)
   })
 })
 
@@ -54,12 +56,11 @@ ui <- fluidPage(
             
             textInput('Genotype', 'Genotype',
                       value = ""),
-            
             sliderInput("generations",
                         "Generations to plot:",
                         min = 1,
                         max = 20,
-                        value = 4),
+                        value = 3),
            checkboxInput("color", "Color", value = FALSE, width = NULL),
            checkboxInput("flip", "Flip", value = FALSE, width = NULL),
            checkboxInput("slanted", "Slanted", value = FALSE, width = NULL),
